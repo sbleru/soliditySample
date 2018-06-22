@@ -12,3 +12,6 @@ module.exports = new クラス
  ABI, コントラクトのアドレス
 
 - web3のプロバイダの一覧がコントラクトの中に書かれている
+
+- async await  
+awaitの宣言でその値の取得を待つようになる。

@@ -10,6 +10,7 @@ let inbox;
 
 beforeEach(async () => {
     // Get a list of all accounts
+    // awaitで値を取得するまで待つようになる。コントラクトとのやりとりは時間がかかるためawaitを入れる。
     accounts = await web3.eth.getAccounts();
 
     // Use one of those accounts to deploy
@@ -24,5 +25,10 @@ beforeEach(async () => {
 describe('Inbox', () => {
     it('deploys a contract', () => {
         assert.ok(inbox.options.address);
+    });
+
+    it('has a default message', async () => {
+        const message = await inbox.methods.message().call();
+        assert.equal(message, "Hi there!");
     });
 });
